@@ -1,0 +1,24 @@
+/bin/
+/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Secrets
+secrets.json
+*.env
+
+# Logs
+*.log
+
+# User-specific files
+*.vspscc
+*.vssscc
+*.vspx

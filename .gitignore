@@ -1,0 +1,25 @@
+# === .NET ===
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+
+# Rider
+.idea/
+
+# Build output
+*.log
+
+# === Node / React ===
+**/node_modules/
+**/build/
+**/dist/
+
+# Env / Secrets
+.env
+.env.local
+.env.*.local
+
+# Mac / OS
+.DS_Store

@@ -24,6 +24,40 @@ public class SpotifyController : ControllerBase
         var token = authHeader["Bearer ".Length..]; // Slice off 'Bearer '
 
         var result = await _spotifyService.GetUserProfileAsync(token);
-        return Ok(result);    }
+        return Ok(result);    
+    }
+    
+    [HttpGet("top-artists")]
+    public async Task<IActionResult> GetTopArtists([FromHeader(Name = "Authorization")] string authHeader)
+    {
+        if (!authHeader?.StartsWith("Bearer ") ?? true)
+            return Unauthorized();
+
+        var token = authHeader["Bearer ".Length..];
+        var result = await _spotifyService.GetTopArtistsAsync(token);
+        return Ok(result);
+    }
+
+    [HttpGet("top-tracks")]
+    public async Task<IActionResult> GetTopTracks([FromHeader(Name = "Authorization")] string authHeader)
+    {
+        if (!authHeader?.StartsWith("Bearer ") ?? true)
+            return Unauthorized();
+
+        var token = authHeader["Bearer ".Length..];
+        var result = await _spotifyService.GetTopTracksAsync(token);
+        return Ok(result);
+    }
+
+    [HttpGet("playlists")]
+    public async Task<IActionResult> GetPlaylists([FromHeader(Name = "Authorization")] string authHeader)
+    {
+        if (!authHeader?.StartsWith("Bearer ") ?? true)
+            return Unauthorized();
+
+        var token = authHeader["Bearer ".Length..];
+        var result = await _spotifyService.GetUserPlaylistsAsync(token);
+        return Ok(result);
+    }
 
 }
